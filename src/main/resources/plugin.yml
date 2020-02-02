@@ -1,0 +1,21 @@
+name: Wild
+main: fr.breakerland.wild.Wild
+api-version: 1.13
+version: 1.0
+description: Random teleport in the wild !
+authors: [LLIcocoman_Hrz]
+depend: [Lands, Vault]
+
+commands:
+  wild:
+    description: Random teleport in the wild!
+    aliases: [randomtp, rtp, nature]
+    permission: wild.wild
+permissions:
+  wild.wild:
+   default: true
+   description: Allows to use wild command
+  wild.*:
+   description: Wildcard permission
+   children:
+     wild.wild: true
