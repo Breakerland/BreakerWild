@@ -9,14 +9,14 @@ price:
   prince: 20000
   héro: 50000
   roi: 100000
-  légende: 
-  fantôme:
-  empereur:
+  légende: 200000
+  fantôme: 500000
+  empereur: 1000000
 
 # Command to execute in console
 command: l wild %player%
 
 # Messages
 message:
-  wildSucess: '&8Téléporation aléatoire réussie! Coût: %cost%'
+  wildSucess: '&7Téléporation aléatoire réussie! Coût: %cost%'
   wildFailed: '&cVous n''avez pas assez d''argent. Coût: %cost%'

@@ -20,6 +20,7 @@ public class Wild extends JavaPlugin implements CommandExecutor {
 
 	@Override
 	public void onEnable() {
+		saveDefaultConfig();
 		if (!setupEconomy()) {
 			getLogger().info("No economy plugin detected. Please install an economy plugin like iConomy6 or Essentials.");
 			setEnabled(false);
@@ -59,8 +60,8 @@ public class Wild extends JavaPlugin implements CommandExecutor {
 		LandPlayer landPlayer = landsAddon.getLandPlayer(player.getUniqueId());
 		double cost = getConfig().getDouble("price." + permission.getPrimaryGroup(player), getConfig().getDouble("default", 0));
 		if (! (cost > 0) || landPlayer == null || !landPlayer.ownsLand() && !landPlayer.getLands().isEmpty() || economy.withdrawPlayer(player, cost).transactionSuccess()) {
-			sender.sendMessage(format(getConfig().getString("messages.wildSucess", "&8Téléporation aléatoire réussie! Coût: %cost%"), cost));
-			getServer().dispatchCommand(getServer().getConsoleSender(), getConfig().getString("command", "l wild %money%").replaceFirst("%money%", player.getName()));
+			sender.sendMessage(format(getConfig().getString("messages.wildSucess", "&7Téléporation aléatoire réussie! Coût: %cost%"), cost));
+			getServer().dispatchCommand(getServer().getConsoleSender(), getConfig().getString("command", "l wild %player%").replaceFirst("%player%", player.getName()));
 		} else
 			sender.sendMessage(format(getConfig().getString("messages.wildFailed", "&cVous n'avez pas assez d'argent. Coût: %cost%"), cost));
 
